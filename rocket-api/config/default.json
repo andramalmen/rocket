@@ -1,0 +1,9 @@
+{
+    "Server": {
+        "port": 3001
+    },
+    "Database": {
+        "url": "mongodb://127.0.0.1:27017",
+        "dbName": "rocket"
+    }
+}
