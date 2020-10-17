@@ -12,7 +12,7 @@
         "prettier": "prettier --ignore-path .gitignore  \"**/*.+(js|ts|tsx|json)\"",
         "format": "npm run prettier -- --write",
         "format:check": "npm run prettier -- --list-different",
-        "validate": "npm-run-all check:types format:check lint build"
+        "validate": "npm-run-all --parallel check:types format:check lint build"
     },
     "dependencies": {
         "next": "9.5.5",
