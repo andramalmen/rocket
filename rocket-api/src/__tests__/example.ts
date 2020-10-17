@@ -1,1 +1,3 @@
-test('it works', () => {});
+test('it works', () => {
+    console.log('smtg');
+});

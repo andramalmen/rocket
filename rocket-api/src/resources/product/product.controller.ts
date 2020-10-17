@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Product } from './product.model';
 
-export const getAllProducts = async (_: Request, res: Response) => {
+export const getAllProducts = async (_: Request, res: Response): Promise<void> => {
     try {
         const doc = await Product.find().lean().exec();
 
@@ -16,7 +16,7 @@ export const getAllProducts = async (_: Request, res: Response) => {
     }
 };
 
-export const createProduct = async (req: Request, res: Response) => {
+export const createProduct = async (req: Request, res: Response): Promise<void> => {
     try {
         const doc = await Product.create(req.body);
         res.status(201).json({ data: doc });
@@ -33,7 +33,7 @@ export const createProduct = async (req: Request, res: Response) => {
     }
 };
 
-export const getProductById = async (req: Request, res: Response) => {
+export const getProductById = async (req: Request, res: Response): Promise<void> => {
     try {
         const doc = await Product.findById(req.params.id).lean().exec();
 
@@ -48,7 +48,7 @@ export const getProductById = async (req: Request, res: Response) => {
     }
 };
 
-export const addProducts = async (req: Request, res: Response) => {
+export const addProducts = async (req: Request, res: Response): Promise<void> => {
     try {
         const doc = await Product.insertMany(req.body, { ordered: false });
         res.status(201).json({ data: doc });
@@ -59,7 +59,7 @@ export const addProducts = async (req: Request, res: Response) => {
     }
 };
 
-export const updateProduct = async (req: Request, res: Response) => {
+export const updateProduct = async (req: Request, res: Response): Promise<void> => {
     try {
         const updatedDoc = await Product.findByIdAndUpdate(
             {
@@ -82,7 +82,7 @@ export const updateProduct = async (req: Request, res: Response) => {
     }
 };
 
-export const deleteProduct = async (req: Request, res: Response) => {
+export const deleteProduct = async (req: Request, res: Response): Promise<void> => {
     try {
         const removed = await Product.findByIdAndRemove({
             _id: req.params.id,
@@ -92,7 +92,7 @@ export const deleteProduct = async (req: Request, res: Response) => {
             return res.status(400).end();
         }
 
-        return res.status(200).json({ data: removed });
+        res.status(200).json({ data: removed });
     } catch (e) {
         console.error(e);
         res.status(400).end();

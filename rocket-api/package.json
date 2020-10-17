@@ -7,7 +7,8 @@
         "start": "nodemon src/index.ts",
         "start:prod": "NODE_ENV=production node build/index.js",
         "build": "tsc --project ./",
-        "test": "jest"
+        "test": "jest",
+        "lint": "eslint"
     },
     "author": "Andra Malmen",
     "license": "ISC",
@@ -19,6 +20,9 @@
         "@types/mongoose": "^5.7.36",
         "@types/morgan": "^1.9.1",
         "@types/node": "^14.11.8",
+        "@typescript-eslint/eslint-plugin": "^4.4.1",
+        "@typescript-eslint/parser": "^4.4.1",
+        "eslint": "^7.11.0",
         "jest": "^26.5.3",
         "mongoose": "^5.10.9",
         "nodemon": "^2.0.5",
