@@ -8,11 +8,12 @@
         "start:prod": "NODE_ENV=production node build/index.js",
         "build": "tsc --project ./",
         "test": "jest",
-        "lint": "eslint",
+        "check:types": "tsc",
+        "lint": "eslint --ext .tsx,.ts,.js .",
         "prettier": "prettier --ignore-path .gitignore  \"**/*.+(js|ts|json)\"",
         "format": "npm run prettier -- --write",
         "format:check": "npm run prettier -- --list-different",
-        "validate": "npm run format:check && npm run lint && npm run build"
+        "validate": "npm run check:types && npm run format:check && npm run lint && npm run build"
     },
     "author": "Andra Malmen",
     "license": "ISC",
