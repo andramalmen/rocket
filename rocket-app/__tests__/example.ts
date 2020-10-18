@@ -1,5 +1,7 @@
+import api from '../pages/api/hello';
+
 test('it works', () => {
-    console.log('smtg');
+    expect(api).toBeDefined();
 });
 
 export {};

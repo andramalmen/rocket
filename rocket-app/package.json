@@ -12,7 +12,7 @@
         "prettier": "prettier --ignore-path .gitignore  \"**/*.+(js|ts|tsx|json)\"",
         "format": "npm run prettier -- --write",
         "format:check": "npm run prettier -- --list-different",
-        "validate": "npm-run-all --parallel check:types format:check lint build"
+        "validate": "npm-run-all --parallel check:types format:check lint test build"
     },
     "dependencies": {
         "next": "9.5.5",
@@ -20,10 +20,12 @@
         "react-dom": "16.14.0"
     },
     "devDependencies": {
+        "@babel/plugin-proposal-do-expressions": "^7.12.1",
         "@types/jest": "^26.0.14",
         "@types/react": "^16.9.53",
         "@typescript-eslint/eslint-plugin": "^4.4.1",
         "@typescript-eslint/parser": "^4.4.1",
+        "babel-jest": "^26.5.2",
         "eslint": "^7.11.0",
         "eslint-config-prettier": "^6.13.0",
         "eslint-plugin-jsx-a11y": "^6.3.1",

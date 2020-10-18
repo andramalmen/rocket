@@ -1,3 +1,5 @@
-test('it works', () => {
-    console.log('smtg');
+import { addProducts } from '../resources/product/product.controller';
+
+test('testing', () => {
+    expect(addProducts).toBeDefined();
 });
