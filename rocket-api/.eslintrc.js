@@ -22,5 +22,6 @@ module.exports = {
     },
     rules: {
         strict: ['error', 'never'],
+        '@typescript-eslint/no-explicit-any': 'off',
     },
 };
