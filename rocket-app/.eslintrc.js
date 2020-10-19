@@ -28,6 +28,7 @@ module.exports = {
         strict: ['error', 'never'],
         'react/react-in-jsx-scope': 'off',
         '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
     },
     settings: {
         react: {
@@ -46,4 +47,15 @@ module.exports = {
             { name: 'Link', linkAttribute: 'to' },
         ],
     },
+    overrides: [
+        {
+            files: ['**/__test__/**'],
+            settings: {
+                'import/resolver': {
+                  jest: {
+                    jestConfigFile: path.join(__dirname, './jest.config')
+                },
+            }
+        },
+    ],
 };
