@@ -52,10 +52,11 @@ module.exports = {
             files: ['**/__test__/**'],
             settings: {
                 'import/resolver': {
-                  jest: {
-                    jestConfigFile: path.join(__dirname, './jest.config')
+                    jest: {
+                        jestConfigFile: path.join(__dirname, './jest.config'),
+                    },
                 },
-            }
+            },
         },
     ],
 };
