@@ -19,7 +19,7 @@
         "noUnusedParameters": true,
         "noImplicitReturns": true,
         "paths": {
-            "*": ["test/*"]
+            "*": ["./test/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
