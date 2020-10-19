@@ -8,6 +8,8 @@
         "start:prod": "NODE_ENV=production node build/index.js",
         "build": "tsc --project ./",
         "test": "jest",
+        "test:watch": "jest --watch",
+        "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
         "check:types": "tsc",
         "lint": "eslint --ext .tsx,.ts,.js .",
         "prettier": "prettier --ignore-path .gitignore  \"**/*.+(js|ts|json)\"",
