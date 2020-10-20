@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "bootstrap": "lerna bootstrap"
     },
     "repository": {
         "type": "git",
@@ -16,5 +16,13 @@
         "url": "https://github.com/andramalmen/rocket/issues"
     },
     "homepage": "https://github.com/andramalmen/rocket#readme",
-    "devDependencies": {}
+    "devDependencies": {
+        "husky": "^4.3.0",
+        "lerna": "^3.22.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lerna run check:types && lerna run lint-staged && lerna run build"
+        }
+    }
 }

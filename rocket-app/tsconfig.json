@@ -17,10 +17,7 @@
         "noEmitOnError": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noImplicitReturns": true,
-        "paths": {
-            "*": ["./test/*"]
-        }
+        "noImplicitReturns": true
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
     "exclude": ["node_modules"]

@@ -1,4 +1,6 @@
 import { Request, Response } from 'express';
+
+import db from './product.database';
 import { Product } from './product.model';
 
 export const getAllProducts = async (_: Request, res: Response): Promise<void> => {
@@ -35,16 +37,20 @@ export const createProduct = async (req: Request, res: Response): Promise<void> 
 
 export const getProductById = async (req: Request, res: Response): Promise<void> => {
     try {
-        const doc = await Product.findById(req.params.id).lean().exec();
+        const doc = await db.getProductById(req.params.id);
 
         if (!doc) {
-            return res.status(400).end();
+            res.status(400).json({
+                message: `No document with id: ${req.params.id} was found`,
+            });
+            return;
         }
-
         res.status(200).json({ data: doc });
     } catch (e) {
         console.error(e);
-        res.status(400).end();
+        res.status(400).json({
+            message: `An error has ocurrent when trying to retrive document with id: ${req.params.id} `,
+        });
     }
 };
 
