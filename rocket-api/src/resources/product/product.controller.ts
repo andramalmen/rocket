@@ -25,7 +25,7 @@ export const getAllProducts = async (_: Request, res: Response): Promise<void> =
 
 export const createProduct = async (req: Request, res: Response): Promise<void> => {
     try {
-        const doc = await Product.create(req.body);
+        const doc = await db.createProduct(req.body);
         res.status(201).json({ data: doc });
     } catch (e) {
         if (e.code === 11000) {
