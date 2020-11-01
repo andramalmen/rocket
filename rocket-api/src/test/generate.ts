@@ -21,7 +21,7 @@ const buildReq = ({ ...overrides } = {}) => {
 };
 
 const buildRes = (overrides = {}) => {
-    const res = {
+    const res: any = {
         json: jest.fn(() => res).mockName('json'),
         status: jest.fn(() => res).mockName('status'),
         ...overrides,

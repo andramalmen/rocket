@@ -5,16 +5,21 @@ import { Product } from './product.model';
 
 export const getAllProducts = async (_: Request, res: Response): Promise<void> => {
     try {
-        const doc = await Product.find().lean().exec();
+        const doc = await db.getAllProducts();
 
         if (!doc) {
-            return res.status(400).end();
+            res.status(400).json({
+                message: 'No document was found',
+            });
+            return;
         }
 
         res.status(200).json({ data: doc });
     } catch (e) {
         console.error(e);
-        res.status(400).end();
+        res.status(400).json({
+            message: 'An error has ocurrent when trying to retrive all documents',
+        });
     }
 };
 
